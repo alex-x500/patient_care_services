@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Care Services | Trusted Home Healthcare</title>
+    <meta name="description" content="Professional Aaya, Nurse & Elder Care Services at Your Doorstep. 24/7 support available with experienced and verified staff.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0d9488',      // Teal - matching khushi healthcare
+                        secondary: '#0f766e',    // Dark teal
+                        accent: '#f97316',       // Orange
+                        dark: '#1e293b',
+                        light: '#f0fdfa',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+        }
+        
+        .wave-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-shape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .icon-circle {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(13, 148, 136, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse-ring {
+            position: relative;
+        }
+        
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(13, 148, 136, 0.4);
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            border-radius: 2px;
+            margin-top: 12px;
+        }
+        
+        .feature-box {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* EXACT LOGO CSS - Matching uploaded image */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-box {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            background: linear-gradient(135deg, #86efac 0%, #4ade80 50%, #22c55e 100%);
+            border-radius: 8px;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-cross-v {
+            position: absolute;
+            width: 18px;
+            height: 90%;
+            background: linear-gradient(180deg, #a7f3d0 0%, #6ee7b7 50%, #34d399 100%);
+            border-radius: 2px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.2), inset 0 0 8px rgba(255,255,255,0.4);
+        }
+        
+        .logo-cross-h {
+            position: absolute;
+            width: 90%;
+            height: 18px;
+            background: linear-gradient(90deg, #a7f3d0 0%, #6ee7b7 50%, #34d399 100%);
+            border-radius: 2px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.2), inset 0 0 8px rgba(255,255,255,0.4);
+        }
+        
+        .logo-pcs-text {
+            position: relative;
+            z-index: 10;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 26px;
+            color: #dc2626;
+            text-shadow: 
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff,
+                2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .brand-name-full {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body class="font-body text-gray-700 antialiased overflow-x-hidden">
+
+    <!-- Top Bar -->
+    <div class="bg-primary text-white py-2 px-4 text-center text-sm">
+        <span class="font-medium">📞 24/7 Emergency Support Available | </span>
+        <a href="tel:+919999999999" class="font-bold hover:underline">+91 99999 99999</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky-nav py-4 px-4 md:px-8 lg:px-16 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="logo-wrapper" data-aos="fade-right">
+                <!-- CSS LOGO - EXACT MATCH TO UPLOADED IMAGE -->
+                <div class="logo-box">
+                    <div class="logo-cross-v"></div>
+                    <div class="logo-cross-h"></div>
+                    <span class="logo-pcs-text">PCS</span>
+                </div>
+                <span class="brand-name-full">Patient Care Services</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8" data-aos="fade-left">
+                <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+                <a href="#services" class="text-gray-700 hover:text-primary font-medium transition-colors">Services</a>
+                <a href="#about" class="text-gray-700 hover:text-primary font-medium transition-colors">About Us</a>
+                <a href="#why-us" class="text-gray-700 hover:text-primary font-medium transition-colors">Why Choose Us</a>
+                <a href="#reviews" class="text-gray-700 hover:text-primary font-medium transition-colors">Reviews</a>
+                <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg transition-all flex items-center gap-2">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white rounded-lg shadow-lg p-4 absolute left-4 right-4 top-full border border-gray-100">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Home</a>
+                <a href="#services" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Services</a>
+                <a href="#about" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">About Us</a>
+                <a href="#why-us" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Why Choose Us</a>
+                <a href="#reviews" class="text-gray-700 hover:text-primary font-medium py-2 border-b border-gray-100">Reviews</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary font-medium py-2">Contact</a>
+                <div class="flex gap-3 pt-2">
+                    <a href="tel:+919999999999" class="btn-primary text-white px-4 py-3 rounded-lg text-center flex-1 font-medium">
+                        <i class="fas fa-phone mr-2"></i>Call
+                    </a>
+                    <a href="https://wa.me/919999999999" class="btn-whatsapp text-white px-4 py-3 rounded-lg text-center flex-1 font-medium">
+                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20 pb-32 px-4 md:px-8 lg:px-16 relative overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl floating"></div>
+        <div class="absolute bottom-20 left-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl floating" style="animation-delay: 2s;"></div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-primary font-semibold text-sm mb-6 shadow-md border border-primary/20">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Trusted by 1000+ Families
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 font-sans leading-tight mb-6">
+                    Professional Patient <br>
+                    <span class="gradient-text">Care at Your Home</span>
+                </h1>
+                
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+                    We provide experienced and verified staff for <strong>Aaya, Nursing & Elder Care</strong> services at your doorstep. Quality healthcare with compassion and trust.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="tel:+919999999999" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-3">
+                        <i class="fas fa-phone-alt text-xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs opacity-90">Call Now</div>
+                            <div class="font-bold">+91 99999 99999</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://wa.me/919999999999" class="btn-whatsapp text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-3">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs opacity-90">Chat on</div>
+                            <div class="font-bold">WhatsApp</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-6 text-sm text-gray-600">
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-primary"></i>
+                        <span class="font-medium">Verified Staff</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-primary"></i>
+                        <span class="font-medium">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                <div class="relative z-10">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="Healthcare at Home" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+                    
+                    <!-- Floating Card 1 -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-gray-900">1000+</div>
+                                <div class="text-sm text-gray-600">Happy Patients</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Card 2 -->
+                    <div class="absolute top-10 -right-6 bg-white p-5 rounded-2xl shadow-xl" data-aos="zoom-in" data-aos-delay="700">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900">4.9/5</div>
+                                <div class="text-xs text-gray-600">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Badge -->
+                    <div class="absolute -bottom-4 right-10 bg-gradient-to-br from-primary to-secondary text-white p-4 rounded-2xl shadow-xl" data-aos="zoom-in" data-aos-delay="900">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">5+</div>
+                            <div class="text-xs">Years Exp.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave Shape -->
+        <div class="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 md:px-8 lg:px-16 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Our Services</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-sans mt-2 mb-4 section-title inline-block">Comprehensive Care Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6">We offer a wide range of professional healthcare services tailored to meet your specific needs at home</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1: Aaya Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-2 bg-gradient-to-r from-primary to-secondary"></div>
+                    <div class="p-8">
+                        <div class="icon-circle bg-gradient-to-br from-primary/20 to-secondary/20 text-primary mx-auto mb-6">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans text-center">Aaya Service</h3>
+                        <p class="text-gray-600 text-center mb-6 text-sm">Daily care, bathing, feeding, and complete patient support at home</p>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-primary text-xs"></i>
+                                <span>Personal care assistance</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-primary text-xs"></i>
+                                <span>Meal preparation</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-primary text-xs"></i>
+                                <span>Medication reminders</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/919999999999?text=Hi, I need Aaya Service" class="block w-full text-center btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2: Home Nursing -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-2 bg-gradient-to-r from-secondary to-primary"></div>
+                    <div class="p-8">
+                        <div class="icon-circle bg-gradient-to-br from-secondary/20 to-primary/20 text-secondary mx-auto mb-6">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans text-center">Home Nursing</h3>
+                        <p class="text-gray-600 text-center mb-6 text-sm">Professional medical care including injections, dressing, and monitoring</p>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-secondary text-xs"></i>
+                                <span>Injection & IV drip</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-secondary text-xs"></i>
+                                <span>Wound dressing</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-secondary text-xs"></i>
+                                <span>Vital monitoring</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/919999999999?text=Hi, I need Home Nursing" class="block w-full text-center btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3: Elder Care -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-2 bg-gradient-to-r from-accent to-orange-600"></div>
+                    <div class="p-8">
+                        <div class="icon-circle bg-gradient-to-br from-accent/20 to-orange-100 text-accent mx-auto mb-6">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans text-center">Elder Care</h3>
+                        <p class="text-gray-600 text-center mb-6 text-sm">Compassionate full-time care and companionship for elderly patients</p>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-accent text-xs"></i>
+                                <span>24/7 companionship</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-accent text-xs"></i>
+                                <span>Mobility assistance</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-accent text-xs"></i>
+                                <span>Health monitoring</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/919999999999?text=Hi, I need Elder Care" class="block w-full text-center btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 4: Attendant Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-2 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+                    <div class="p-8">
+                        <div class="icon-circle bg-gradient-to-br from-green-100 to-emerald-100 text-green-600 mx-auto mb-6">
+                            <i class="fas fa-hospital-user"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-sans text-center">Attendant Service</h3>
+                        <p class="text-gray-600 text-center mb-6 text-sm">Hospital and home assistance for patients requiring constant support</p>
+                        <ul class="space-y-2 mb-6 text-sm">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-green-600 text-xs"></i>
+                                <span>Hospital assistance</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-green-600 text-xs"></i>
+                                <span>Doctor visit support</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i class="fas fa-check text-green-600 text-xs"></i>
+                                <span>24/7 availability</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/919999999999?text=Hi, I need Attendant Service" class="block w-full text-center btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=80" alt="Why Choose Us" class="rounded-3xl shadow-2xl w-full">
+                </div>
+                
+                <div data-aos="fade-left">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 font-sans mt-2 mb-6 section-title">What Makes Us Different</h2>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6 mt-8">
+                        <div class="feature-box">
+                            <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-2xl mb-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Verified Staff</h4>
+                            <p class="text-sm text-gray-600">Police verified & background checked caregivers</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary text-2xl mb-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">24/7 Available</h4>
+                            <p class="text-sm text-gray-600">Round the clock support and emergency care</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent text-2xl mb-4">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Affordable Pricing</h4>
+                            <p class="text-sm text-gray-600">Quality care at competitive rates</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-4">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Easy Replacement</h4>
+                            <p class="text-sm text-gray-600">Quick staff replacement if needed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 px-4 md:px-8 lg:px-16 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">About Us</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 font-sans mt-2 mb-6 section-title">Trusted Care for Your Loved Ones</h2>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Patient Care Services has been providing <strong>professional home healthcare</strong> for over 5 years. Our mission is to ensure every patient receives compassionate, personalized care in the comfort of their home.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        All our staff members are thoroughly screened, trained, and verified to ensure the highest standards of care and safety for your family members.
+                    </p>
+                    
+                    <div class="flex gap-8 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-1">5+</div>
+                            <div class="text-sm text-gray-600">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-1">1000+</div>
+                            <div class="text-sm text-gray-600">Happy Families</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-1">50+</div>
+                            <div class="text-sm text-gray-600">Expert Staff</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 hover:shadow-lg transition-all">
+                        Contact Us <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=400&auto=format&fit=crop&q=80" alt="Care" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&auto=format&fit=crop&q=80" alt="Nursing" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="cta-section py-20 px-4 md:px-8 lg:px-16 text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+            <div data-aos="zoom-in" data-aos-delay="100">
+                <div class="text-5xl font-bold mb-2">5+</div>
+                <div class="text-teal-100">Years Experience</div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200">
+                <div class="text-5xl font-bold mb-2">1000+</div>
+                <div class="text-teal-100">Happy Families</div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300">
+                <div class="text-5xl font-bold mb-2">50+</div>
+                <div class="text-teal-100">Expert Staff</div>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="400">
+                <div class="text-5xl font-bold mb-2">24/7</div>
+                <div class="text-teal-100">Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 font-sans mt-2 mb-4 section-title inline-block">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6">Real feedback from families who have experienced our care services</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-yellow-400 text-lg mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Bahut acchi service thi, staff bahut helpful tha. Meri mother ko proper care mila aur unki health mein bhi improvement dikha. Highly recommended!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                            RS
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">Rahul Sharma</div>
+                            <div class="text-sm text-gray-500">Delhi</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-yellow-400 text-lg mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Home nursing service excellent thi. Nurse punctual thi aur patient ko bahut ache se handle karti thi. Injection aur dressing bilkul professional tareeke se ki."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center text-white font-bold">
+                            PG
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">Priya Gupta</div>
+                            <div class="text-sm text-gray-500">Noida</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex text-yellow-400 text-lg mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Elder care service ke liye Patient Care Services choose kiya. Father ko full-time care mili aur unko company bhi mili. Staff bahut polite aur caring tha."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent to-orange-600 rounded-full flex items-center justify-center text-white font-bold">
+                            AK
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-900">Amit Kumar</div>
+                            <div class="text-sm text-gray-500">Gurgaon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 md:px-8 lg:px-16 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Contact Us</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 font-sans mt-2 mb-4 section-title inline-block">Get In Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6">Have questions? We're here to help. Reach out to us anytime.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gray-50 p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Phone</h4>
+                    <p class="text-gray-600 mb-2">24/7 Call us anytime</p>
+                    <a href="tel:+919999999999" class="text-primary font-bold text-lg hover:underline">+91 99999 99999</a>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center text-green-600 text-2xl mx-auto mb-4">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">WhatsApp</h4>
+                    <p class="text-gray-600 mb-2">Chat with us directly</p>
+                    <a href="https://wa.me/919999999999" class="text-green-600 font-bold text-lg hover:underline">+91 99999 99999</a>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent text-2xl mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 mb-2">Address</h4>
+                    <p class="text-gray-600">123, Health Care Center,<br>Main Market, Delhi - 110001</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 p-8 md:p-12 rounded-3xl" data-aos="zoom-in">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Send Us a Message</h3>
+                        <p class="text-gray-600 mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
+                        
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" id="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required>
+                                <input type="tel" id="phone" placeholder="Phone Number" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required>
+                            </div>
+                            <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required>
+                                <option value="">Select Service</option>
+                                <option value="Aaya Service">Aaya Service</option>
+                                <option value="Home Nursing">Home Nursing</option>
+                                <option value="Elder Care">Elder Care</option>
+                                <option value="Attendant Service">Attendant Service</option>
+                            </select>
+                            <textarea id="message" rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"></textarea>
+                            <button type="submit" class="w-full btn-whatsapp text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp"></i>
+                                Send via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=80" alt="Contact" class="rounded-2xl shadow-xl w-full">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-gray-900">Quick Response</div>
+                                    <div class="text-sm text-gray-600">Within 1 hour</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <!-- Footer Logo -->
+                    <div class="w-12 h-12 relative bg-gradient-to-br from-green-300 to-green-500 rounded-lg shadow-lg flex items-center justify-center">
+                        <div class="absolute w-3 h-10 bg-green-100 rounded-sm"></div>
+                        <div class="absolute w-10 h-3 bg-green-100 rounded-sm"></div>
+                        <span class="relative z-10 text-red-600 font-bold text-lg italic" style="font-family: 'Times New Roman', serif; text-shadow: 1px 1px 2px white;">PCS</span>
+                    </div>
+                    <span class="text-xl font-bold">Patient Care Services</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Professional patient care services at your doorstep. Trusted by 1000+ families across Delhi NCR.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#reviews" class="hover:text-white transition-colors">Reviews</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">Our Services</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="#services" class="hover:text-white transition-colors">Aaya Service</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Home Nursing</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Elder Care</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors">Attendant Service</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">Contact Info</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-primary"></i>
+                        <a href="tel:+919999999999" class="hover:text-white">+91 99999 99999</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-primary"></i>
+                        <span>care@pcs.com</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-map-marker-alt text-primary"></i>
+                        <span>Delhi, India</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+            <p>&copy; 2024 Patient Care Services. All rights reserved. | Trusted Home Healthcare</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/919999999999" class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = `Hello, I am ${name}. I am interested in ${service}. My phone number is ${phone}. ${message ? 'Message: ' + message : ''}`;
+            
+            const whatsappUrl = `https://wa.me/919999999999?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
